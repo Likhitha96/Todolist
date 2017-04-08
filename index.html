@@ -1,0 +1,21 @@
+<html ng-app="MyApp">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script src="app.js"></script>
+<style> .list{background-color: aqua;}
+.done{background-color: red;}</style>
+<h2 ng-controller="ListController" > You got {{getTotalTodos()}} things to do 
+<div ng-repeat="task in tasks"  >
+<div class="list" ng-class="{done:task.status}">
+ {{task.count}}  {{task.name}} {{task.time}}
+ <button ng-check="checkStatus" ng-click="deleteTask(task)"> Clear</button>
+<input ng-model="task.status"   type="checkbox"/>
+<div ng-class="{done:task.status}"> </div>
+</div>
+</div>
+<form>
+<input ng-model="newTaskName"   type="textbox" ng-model-instant  /> 
+<input ng-model="newTaskTime"   type="textbox" ng-model-instant  />
+<button ng-click="addTask()">ADD</button>
+</form>
+
+</h2>
